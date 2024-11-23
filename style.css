@@ -1,3 +1,4 @@
+/* Body Styling */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   background: linear-gradient(135deg, #83a4d4, #b6fbff);
@@ -7,8 +8,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* Container Styling */
 .container {
   background: #ffffff;
   border-radius: 15px;
@@ -26,6 +29,20 @@ body {
   color: #333;
 }
 
+/* Details Section */
+.details {
+  margin: 15px 0;
+  text-align: left;
+  font-size: 16px;
+}
+
+.details p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button Styling */
 .pay-button {
   background: linear-gradient(135deg, #4CAF50, #81c784);
   color: white;
@@ -37,9 +54,48 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .pay-button:hover {
   background: linear-gradient(135deg, #388E3C, #66bb6a);
   transform: scale(1.05);
+}
+
+/* Success Message Styling */
+.success-message {
+  text-align: center;
+  color: #4CAF50;
+  font-size: 20px;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.success-message .tick {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 10px;
+  color: #4CAF50;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
