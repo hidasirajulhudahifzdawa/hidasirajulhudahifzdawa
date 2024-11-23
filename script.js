@@ -2,12 +2,15 @@ function initiatePayment(name, amount) {
   // Create UPI Payment Link
   const upiLink = `upi://pay?pa=muhammedasim711@oksbi&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=Debt%20Payment`;
 
-  // Open UPI Payment
+  // Log the link to verify
+  console.log("UPI Link: ", upiLink);
+
+  // Redirect to the UPI Payment Link
   window.location.href = upiLink;
 
-  // Simulate payment status (mock behavior)
+  // Optional: Mock behavior for demonstration
   setTimeout(() => {
-    const paymentSuccessful = Math.random() > 0.5; // Randomize for demonstration
+    const paymentSuccessful = Math.random() > 0.5;
 
     if (paymentSuccessful) {
       document.getElementById("successMessage").classList.remove("hidden");
