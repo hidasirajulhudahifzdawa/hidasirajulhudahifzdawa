@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loan Payment</title>
+  <title>Pay Now</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container" id="paymentContainer">
-    <h1>Loan Payment</h1>
-    <div class="details" id="paymentDetails">
-      <p><strong>Name:</strong> Muhammed Asim</p>
+  <div class="container">
+    <div class="card">
+      <h2>Muhammed Asim</h2>
       <p><strong>Place:</strong> Kallad</p>
       <p><strong>Class:</strong> Degree Final</p>
-      <p><strong>Debt to be Given:</strong> ₹100</p>
+      <p><strong>Debt to be Paid:</strong> ₹100</p>
+      <button class="button">Pay Now</button> 
     </div>
-    <a class="pay-button" id="payButton">Pay Now</a>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    //UPI Pyment Link
+
+  document.getElementById("payNow").addEventListener("click",function () {
+    const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%am=100%cu=INR&tn=Debt%20Payment";
+    window.location.href = upiLink;
+  });
+  </script>
 </body>
 </html>

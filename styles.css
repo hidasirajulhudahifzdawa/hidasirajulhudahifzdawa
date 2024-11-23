@@ -1,0 +1,127 @@
+/* Body Styling */
+body {
+    font-family: 'Anek Malayalam Light';
+    background: linear-gradient(135deg, #83a4d4, #b6fbff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Container Styling */
+  .container {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: Normal;
+    line-height: 40%;
+    width: 300px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .container h2 {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .container p {
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    line-height: 3px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #333;
+  }
+  
+  /* Details Section */
+  .details {
+    margin: 15px 0;
+    text-align: left;
+    font-size: 18px;
+  }
+  
+  .details p {
+    margin: 8px 0;
+    font-size: 10px;
+    color: #555;
+  }
+  
+  /* Button Styling */
+  .button {
+    background: linear-gradient(135deg, #4CAF50, #81c784);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 13px;
+    padding: 12px 22px;
+    font-size: 17px;
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 100px;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:hover {
+    background: linear-gradient(135deg, #388E3C, #66bb6a);
+    transform: scale(1.05);
+  }
+  
+  /* Success Message Styling */
+  .success-message {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .success-message .tick {
+    font-size: 30px;
+    display: block;
+    align-items: center;
+    margin-right: 60px;
+    margin-bottom: 10px;
+    color: #4CAF50;
+    animation: bounce 1s ease-in-out infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
