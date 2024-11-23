@@ -1,7 +1,7 @@
 /* Body Styling */
 body {
-    font-family: 'Anek Malayalam Light';
-    background: linear-gradient(135deg, #83a4d4, #b6fbff);
+    font-family: 'Anek Malayalam Light', sans-serif;
+    background: linear-gradient(135deg, #d48f83, #b6fbff);
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,6 +9,13 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+  }
+
+  /* ...(rest of your existing CSS here) ... */
+
+  /* Hidden Class */
+  .hidden {
+    display: none;
   }
   
   /* Container Styling */
