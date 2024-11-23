@@ -1,55 +1,101 @@
+/* Body Styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
+
+/* Container Styling */
 .container {
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 30px;
   text-align: center;
-  width: 300px;
+  width: 350px;
+  animation: fadeIn 1s ease-in-out;
 }
+
 .container h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
   color: #333;
 }
+
+/* Details Section */
 .details {
   margin: 15px 0;
   text-align: left;
-}
-.details p {
-  margin: 5px 0;
   font-size: 16px;
 }
+
+.details p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Button Styling */
 .pay-button {
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50, #81c784);
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 50px;
+  padding: 12px 25px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .pay-button:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #388E3C, #66bb6a);
+  transform: scale(1.05);
 }
+
+/* Success Message Styling */
 .success-message {
   text-align: center;
   color: #4CAF50;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
+
 .success-message .tick {
-  font-size: 30px;
+  font-size: 50px;
   display: block;
   margin-bottom: 10px;
+  color: #4CAF50;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
