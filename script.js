@@ -1,6 +1,6 @@
 document.getElementById("payNow").addEventListener("click", function () {
   // UPI Payment Link
-  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Asim&am=100&cu=INR&tn=Debt%20Payment";
+  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Asim&am=5&cu=INR&tn=Debt%20Payment";
   
   // Open UPI Payment
   window.location.href = upiLink;
