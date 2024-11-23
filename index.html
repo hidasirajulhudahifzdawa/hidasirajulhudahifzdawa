@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loan Payment</title>
+  <title>Payment the debt</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -66,25 +66,35 @@
   <div class="container">
     <h1>Loan Payment</h1>
     <div class="details">
-      <p><strong>Name:</strong> Muhammed Asim</p>
-      <p><strong>Place:</strong> Kallad</p>
-      <p><strong>Class:</strong> Degree Final</p>
-      <p><strong>Debt to be Given:</strong> ₹100</p>
+      <p><strong>Name:</strong> Muhammed Adil</p>
+      <p><strong>Place:</strong> Perambra</p>
+      <p><strong>Class:</strong> Degree First Year</p>
+      <p><strong>Debt to be Given:</strong> ₹5</p>
     </div>
-    <a class="pay-button" href="upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Asim&am=100&cu=INR" onclick="showPaymentStatus()">Pay Now</a>
-    <div class="status-message" id="payment-status">
-      <span class="check-icon">✔</span><span>Payment Successful!</span>
-    </div>
-  </div>
+<a class="pay-button" onclick="startPayment()">Pay Now</a>
+<div class="status-message" id="payment-status" style="display: none;">
+  <span class="check-icon">✔</span><span>Payment Successful!</span>
+</div>
 
-  <script>
-    function showPaymentStatus() {
-      // This function simulates the status update after the payment
-      // In a real application, you would need to track the payment success via API or callback
-      setTimeout(function() {
-        document.getElementById("payment-status").style.display = "block";
-      }, 2000); // Shows the success message after 2 seconds (to simulate payment completion)
-    }
-  </script>
+<script>
+  function startPayment() {
+    fetch("/start-payment") // Call your server to initiate payment
+      .then((res) => res.json())
+      .then((data) => {
+        const paymentUrl = data.upiLink; // Get UPI link from server
+        window.location.href = paymentUrl; // Redirect user to payment app
+      });
+  }
+
+  function checkPaymentStatus(transactionId) {
+    fetch(`/check-payment-status?transactionId=${transactionId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          document.getElementById("payment-status").style.display = "block"; // Show success message
+        }
+      });
+  }
+</script>
 </body>
 </html>
