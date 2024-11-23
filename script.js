@@ -1,6 +1,6 @@
 function initiatePayment(name, amount) {
   // Create UPI Payment Link
-  const upiLink = `upi://pay?pa=muhammedasim711@oksbi&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=Debt%20Payment`;
+  const upiLink = `upi://pay?pa=muhammedasim711@oksbi&pn=${encodeURIComponent(Muhammed Adil)}&am=5${5}&cu=INR&tn=Debt%20Payment`;
 
   // Log the link to verify
   console.log("UPI Link: ", upiLink);
