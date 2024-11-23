@@ -1,9 +1,20 @@
 document.getElementById("payNow").addEventListener("click", function () {
-    const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed Asim&am=100&cu=INR&tn=Debt Payment";
-    window.location.href = upiLink;
+  // UPI Payment Link
+  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Asim&am=100&cu=INR&tn=Debt%20Payment";
   
-    // Mock payment success
-    setTimeout(() => {
+  // Open UPI Payment
+  window.location.href = upiLink;
+
+  // Simulate payment status (mock behavior)
+  setTimeout(() => {
+    const paymentSuccessful = Math.random() > 0.5; // Randomize for demonstration
+
+    if (paymentSuccessful) {
       document.getElementById("successMessage").classList.remove("hidden");
-    }, 3000);
-  });
+      document.getElementById("failureMessage").classList.add("hidden");
+    } else {
+      document.getElementById("failureMessage").classList.remove("hidden");
+      document.getElementById("successMessage").classList.add("hidden");
+    }
+  }, 3000);
+});
