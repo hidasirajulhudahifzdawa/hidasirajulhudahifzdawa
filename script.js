@@ -1,7 +1,6 @@
 // Get references to elements
 const payButton = document.getElementById("payButton");
 const paymentContainer = document.getElementById("paymentContainer");
-const paymentDetails = document.getElementById("paymentDetails");
 
 // Add payment link to the button
 payButton.setAttribute(
