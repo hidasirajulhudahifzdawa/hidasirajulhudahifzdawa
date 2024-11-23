@@ -114,6 +114,7 @@ body {
     text-align: center;
     color: #4CAF50;
     font-size: 20px;
+    justify-content: center;
     margin-top: 20px;
     margin-right: 10px;
     animation: fadeIn 1s ease-in-out;
