@@ -1,61 +1,53 @@
-// Array of payment data with corrected UPI URL format
-const payments = [
-  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
-  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "muhammedasim711@oksbi" },
-  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
-  { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 352, upiId: "muhammedasim711@oksbi" },
-];
+// Organize payment data into sections
+const sections = {
+  "Plus One (Main)": [
+    { name: "Student A", place: "Place 1", debt: 100, upiId: "upi1@oksbi" },
+    { name: "Student B", place: "Place 2", debt: 150, upiId: "upi2@oksbi" }
+  ],
+  "Plus Two (Main)": [
+    { name: "Student C", place: "Place 3", debt: 200, upiId: "upi3@oksbi" }
+  ],
+  "Degree First (Main)": [
+    { name: "Student D", place: "Place 4", debt: 300, upiId: "upi4@oksbi" }
+  ],
+  "Degree Final (Main)": [
+    { name: "Student E", place: "Place 5", debt: 400, upiId: "upi5@oksbi" }
+  ]
+};
 
 // Reference to the payment container
 const paymentContainer = document.getElementById("payment-container");
 
-// Group payment data by class
-const groupedPayments = payments.reduce((groups, payment) => {
-  if (!groups[payment.class]) {
-    groups[payment.class] = [];
-  }
-  groups[payment.class].push(payment);
-  return groups;
-}, {});
+// Dynamically generate sections and their contents
+Object.entries(sections).forEach(([sectionName, students]) => {
+  // Create a section container
+  const sectionDiv = document.createElement("div");
+  sectionDiv.className = "section";
 
-// Reference to the category container
-const categoryContainer = document.querySelector(".category-container");
+  // Add section title
+  const sectionTitle = document.createElement("h2");
+  sectionTitle.textContent = sectionName;
+  sectionDiv.appendChild(sectionTitle);
 
-// Generate categories dynamically
-Object.entries(groupedPayments).forEach(([className, payments]) => {
-  // Create a category element
-  const category = document.createElement("div");
-  category.className = "category";
-
-  // Add the category header
-  category.innerHTML = `<h2>${className}</h2>`;
-
-  // Create a sub-category section
-  const subCategory = document.createElement("div");
-  subCategory.className = "sub-category";
-  subCategory.innerHTML = `<h3>Pay Card of Students</h3>`;
-
-  // Add cards to the sub-category
-  payments.forEach(payment => {
+  // Add student cards
+  students.forEach((student) => {
     const card = document.createElement("div");
     card.className = "card";
 
-    const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+    const upiUrl = `upi://pay?pa=${student.upiId}&pn=${encodeURIComponent(student.name)}&am=${student.debt}&cu=INR&tn=Payment%20for%20Debt`;
 
     card.innerHTML = `
-      <h3>${payment.name}</h3>
-      <p>Place: ${payment.place}</p>
-      <p>Debt to be Given: ₹${payment.debt}</p>
+      <h3>${student.name}</h3>
+      <p>Place: ${student.place}</p>
+      <p>Debt to be Given: ₹${student.debt}</p>
       <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
     `;
-    subCategory.appendChild(card);
+
+    sectionDiv.appendChild(card);
   });
 
-  // Append the sub-category to the category
-  category.appendChild(subCategory);
-
-  // Append the category to the container
-  categoryContainer.appendChild(category);
+  // Append the section to the container
+  paymentContainer.appendChild(sectionDiv);
 });
 
 // Add event listeners to "Pay Now" buttons
