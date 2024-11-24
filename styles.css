@@ -45,11 +45,11 @@ html, body {
 /* Container Styling */
 .container {
   background: #ffffff;
-  border-radius: 15px;
+  border-radius: 50px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: normal;
-  line-height: 15px;
+  line-height: 35px;
   width: 350px;
   max-height: 70vh; /* Limit container height, adjust as needed */
   overflow-y: auto; /* Enables vertical scrolling inside the container */
@@ -63,7 +63,7 @@ html, body {
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
