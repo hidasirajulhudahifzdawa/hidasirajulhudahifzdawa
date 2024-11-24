@@ -9,26 +9,53 @@ const payments = [
 // Reference to the payment container
 const paymentContainer = document.getElementById("payment-container");
 
-// Generate payment cards dynamically
-payments.forEach((payment) => {
-  // Create card element
-  const card = document.createElement("div");
-  card.className = "card";
+// Group payment data by class
+const groupedPayments = payments.reduce((groups, payment) => {
+  if (!groups[payment.class]) {
+    groups[payment.class] = [];
+  }
+  groups[payment.class].push(payment);
+  return groups;
+}, {});
 
-  // Corrected UPI URL format
-  const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+// Reference to the category container
+const categoryContainer = document.querySelector(".category-container");
 
-  // Add content to the card
-  card.innerHTML = `
-    <h3>${payment.name}</h3>
-    <p>Place: ${payment.place}</p>
-    <p>Class: ${payment.class}</p>
-    <p>Debt to be Given: ₹${payment.debt}</p>
-    <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
-  `;
+// Generate categories dynamically
+Object.entries(groupedPayments).forEach(([className, payments]) => {
+  // Create a category element
+  const category = document.createElement("div");
+  category.className = "category";
 
-  // Append the card to the container
-  paymentContainer.appendChild(card);
+  // Add the category header
+  category.innerHTML = `<h2>${className}</h2>`;
+
+  // Create a sub-category section
+  const subCategory = document.createElement("div");
+  subCategory.className = "sub-category";
+  subCategory.innerHTML = `<h3>Pay Card of Students</h3>`;
+
+  // Add cards to the sub-category
+  payments.forEach(payment => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+
+    card.innerHTML = `
+      <h3>${payment.name}</h3>
+      <p>Place: ${payment.place}</p>
+      <p>Debt to be Given: ₹${payment.debt}</p>
+      <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
+    `;
+    subCategory.appendChild(card);
+  });
+
+  // Append the sub-category to the category
+  category.appendChild(subCategory);
+
+  // Append the category to the container
+  categoryContainer.appendChild(category);
 });
 
 // Add event listeners to "Pay Now" buttons
