@@ -17,45 +17,59 @@ const payments = [
     { name: "Muhammed NK", place: "Meppayyur", class: "Degree Final", debt: 20, upiId: "muhammedasim711@oksbi" },
     { name: "Niyas", place: "Vellamunda", class: "Degree Final", debt: 143, upiId: "muhammedasim711@oksbi" },
     { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" },
-  ];
-  
-  // Reference to the payment container
-  const paymentContainer = document.getElementById("payment-container");
-  
-  // Generate payment cards dynamically
-  payments.forEach((payment) => {
+];
+
+// Reference to the payment container
+const paymentContainer = document.getElementById("payment-container");
+const UPI_LIMIT = 100000; // Replace this with the per-transaction UPI limit for the user's bank
+
+// Generate payment cards dynamically
+payments.forEach((payment) => {
+    // Check if the amount exceeds the UPI limit
+    if (payment.debt > UPI_LIMIT) {
+        alert(`Payment for ${payment.name} exceeds UPI limit. Please try a smaller amount or multiple payments.`);
+        return; // Skip generating the card for this payment
+    }
+
     // Create card element
     const card = document.createElement("div");
     card.className = "card";
-  
+
     // Corrected UPI URL format
     const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
-  
+
     // Add content to the card
     card.innerHTML = `
       <h3>${payment.name}</h3>
       <p>Place: ${payment.place}</p>
       <p>Class: ${payment.class}</p>
       <p>Debt to be Given: ₹${payment.debt}</p>
-      <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
+      <a class="pay-button" href="${upiUrl}" target="_blank" data-debt="${payment.debt}">Pay Now</a>
     `;
-  
+
     // Append the card to the container
     paymentContainer.appendChild(card);
-  });
-  
-  // Add event listeners to "Pay Now" buttons
-  document.querySelectorAll('.pay-button').forEach(button => {
+});
+
+// Add event listeners to "Pay Now" buttons
+document.querySelectorAll('.pay-button').forEach(button => {
     button.addEventListener('click', (event) => {
-      event.preventDefault();
-      const upiLink = event.target.href;
-  
-      // Open the UPI link
-      window.location.href = upiLink;
-  
-      // Simulate payment confirmation
-      setTimeout(() => {
-        document.getElementById('confirmation').classList.remove('hidden');
-      }, 5000); // Simulate delay for payment confirmation
+        event.preventDefault();
+        const debtAmount = parseFloat(button.getAttribute('data-debt')); // Get the debt amount from data attribute
+
+        if (debtAmount > UPI_LIMIT) { // Check the debt amount against the limit
+            alert("Amount exceeds UPI limit. Please try a smaller amount or multiple payments.");
+            return;
+        }
+
+        const upiLink = event.target.href;
+
+        // Open the UPI link
+        window.location.href = upiLink;
+
+        // Simulate payment confirmation
+        setTimeout(() => {
+            document.getElementById('confirmation').classList.remove('hidden');
+        }, 5000); // Simulate delay for payment confirmation
     });
-  });
+});
