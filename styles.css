@@ -169,7 +169,7 @@ html, body {
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 7px;
-  padding: 12px 23px;
+  padding: 12px 25px;
   font-size: 17px;
   display: flex;
   font-weight: bold;
@@ -224,7 +224,7 @@ footer {
     text-align: center;
     font-size: 12px; /* Smaller font for mobile */
     color: #555;
-    padding: 20px 10px;
+    padding: 800px 20px;
     background-color: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -263,7 +263,7 @@ footer {
 
 /* Button Styling */
 .pay-button {
-    padding: 10px 18px; /* Adjust padding for smaller screens */
+    padding: 13px 18px; /* Adjust padding for smaller screens */
     font-size: 16px;
 }
 
