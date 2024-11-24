@@ -1,4 +1,4 @@
-// Array of payment data
+// Array of payment data with corrected UPI URL format
 const payments = [
   { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
   { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "muhammedasim711@oksbi" },
@@ -15,13 +15,16 @@ payments.forEach((payment) => {
   const card = document.createElement("div");
   card.className = "card";
 
+  // Corrected UPI URL format
+  const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+
   // Add content to the card
   card.innerHTML = `
     <h3>${payment.name}</h3>
     <p>Place: ${payment.place}</p>
     <p>Class: ${payment.class}</p>
     <p>Debt to be Given: ₹${payment.debt}</p>
-    <a class="pay-button" href="#" data-upi="upi://pay?pa=${payment.upiId}&pn=${payment.name}&am=${payment.debt}&cu=INR">Pay Now</a>
+    <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
   `;
 
   // Append the card to the container
@@ -32,8 +35,8 @@ payments.forEach((payment) => {
 document.querySelectorAll('.pay-button').forEach(button => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
-    const upiLink = event.target.getAttribute('data-upi');
-    
+    const upiLink = event.target.href;
+
     // Open the UPI link
     window.location.href = upiLink;
 
