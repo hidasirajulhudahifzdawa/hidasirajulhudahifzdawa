@@ -140,7 +140,7 @@ html, body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: normal;
-  line-height: 1.5px;
+  line-height: 1px;
   width: 350px;
   max-height: 70vh; /* Limit container height, adjust as needed */
   overflow-y: auto; /* Enables vertical scrolling inside the container */
@@ -169,7 +169,7 @@ html, body {
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 7px;
-  padding: 12px 25px;
+  padding: 12px 23px;
   font-size: 17px;
   display: flex;
   font-weight: bold;
@@ -224,7 +224,7 @@ footer {
     text-align: center;
     font-size: 12px; /* Smaller font for mobile */
     color: #555;
-    padding: 20px 800px;
+    padding: 20px 1000px;
     background-color: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -250,7 +250,7 @@ footer {
     max-height: 80vh; /* Ensure visibility on smaller screens */
     padding: 20px; /* Adjust padding for compact layout */
     text-align: normal;
-    line-height: 1. 3px; /* Improve readability */
+    line-height: 1px; /* Improve readability */
 }
 
 /* Card Styling */
@@ -263,7 +263,7 @@ footer {
 
 /* Button Styling */
 .pay-button {
-    padding: 13px 18px; /* Adjust padding for smaller screens */
+    padding: 10px 18px; /* Adjust padding for smaller screens */
     font-size: 16px;
 }
 
