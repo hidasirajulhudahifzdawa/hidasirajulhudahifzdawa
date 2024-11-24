@@ -1,25 +1,18 @@
 function initiatePayment(name, amount) {
-  // Create UPI Payment Link
-  const upiLink = upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Adil&am=5&cu=INR&tn=Debt%20Payment`;
+  // UPI ID
+  const upiId = "muhammedasim711@oksbi";
+  const note = encodeURIComponent("Debt Payment");
 
-  // Log the link to verify
-  console.log("UPI Link: ", upiLink);
+  // Create the dynamic UPI payment link
+  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
+    name
+  )}&am=${amount}&cu=INR&tn=${note}`;
 
-  // Redirect to the UPI Payment Link
+  // Redirect to the UPI payment link
   window.location.href = upiLink;
 
-  // Optional: Mock behavior for demonstration
-  setTimeout(() => {
-    const paymentSuccessful = Math.random() > 0.5;
-
-    if (paymentSuccessful) {
-      document.getElementById("successMessage").classList.remove("hidden");
-      document.getElementById("failureMessage").classList.add("hidden");
-    } else {
-      document.getElementById("failureMessage").classList.remove("hidden");
-      document.getElementById("successMessage").classList.add("hidden");
-    }
-  }, 3000);
+  // Display a message to encourage the user to complete payment in the app
+  console.log("Redirecting to UPI Payment...");
 }
 
 // Add event listeners for each button
