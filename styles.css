@@ -199,3 +199,106 @@ html, body {
     transform: translateY(0);
   }
 }
+
+/* General Styling Adjustments for Mobile */
+body {
+    font-family: 'Anek Malayalam Light', sans-serif;
+    background: linear-gradient(135deg, #ffffff, #ebebeb);
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.h1 {
+    color: #ac6700;
+    font-size: 1.5em; /* Adjust font size for mobile */
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px; /* Smaller font for mobile */
+    color: #555;
+    padding: 15px 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduce gap for smaller screens */
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px; /* Smaller icons for phones */
+    border-radius: 8px;
+}
+
+/* Container Styling */
+.container {
+    width: 90%; /* Use most of the screen width */
+    max-height: 80vh; /* Ensure visibility on smaller screens */
+    padding: 20px; /* Adjust padding for compact layout */
+    text-align: normal;
+    line-height: 1px; /* Improve readability */
+}
+
+/* Card Styling */
+.card {
+    padding: 15px;
+    margin-bottom: 15px; /* Reduce margin for compact layout */
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+.pay-button {
+    padding: 10px 18px; /* Adjust padding for smaller screens */
+    font-size: 16px;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .container {
+        width: 95%; /* Almost full width on very small screens */
+        padding: 15px;
+    }
+
+    .card {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .pay-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
