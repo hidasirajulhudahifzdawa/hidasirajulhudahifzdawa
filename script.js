@@ -1,53 +1,34 @@
-// Organize payment data into sections
-const sections = {
-  "Plus One (Main)": [
-    { name: "Student A", place: "Place 1", debt: 100, upiId: "upi1@oksbi" },
-    { name: "Student B", place: "Place 2", debt: 150, upiId: "upi2@oksbi" }
-  ],
-  "Plus Two (Main)": [
-    { name: "Student C", place: "Place 3", debt: 200, upiId: "upi3@oksbi" }
-  ],
-  "Degree First (Main)": [
-    { name: "Student D", place: "Place 4", debt: 300, upiId: "upi4@oksbi" }
-  ],
-  "Degree Final (Main)": [
-    { name: "Student E", place: "Place 5", debt: 400, upiId: "upi5@oksbi" }
-  ]
-};
+// Array of payment data with corrected UPI URL format
+const payments = [
+  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
+  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "muhammedasim711@oksbi" },
+  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
+  { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 352, upiId: "muhammedasim711@oksbi" },
+];
 
 // Reference to the payment container
 const paymentContainer = document.getElementById("payment-container");
 
-// Dynamically generate sections and their contents
-Object.entries(sections).forEach(([sectionName, students]) => {
-  // Create a section container
-  const sectionDiv = document.createElement("div");
-  sectionDiv.className = "section";
+// Generate payment cards dynamically
+payments.forEach((payment) => {
+  // Create card element
+  const card = document.createElement("div");
+  card.className = "card";
 
-  // Add section title
-  const sectionTitle = document.createElement("h2");
-  sectionTitle.textContent = sectionName;
-  sectionDiv.appendChild(sectionTitle);
+  // Corrected UPI URL format
+  const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
 
-  // Add student cards
-  students.forEach((student) => {
-    const card = document.createElement("div");
-    card.className = "card";
+  // Add content to the card
+  card.innerHTML = `
+    <h3>${payment.name}</h3>
+    <p>Place: ${payment.place}</p>
+    <p>Class: ${payment.class}</p>
+    <p>Debt to be Given: ₹${payment.debt}</p>
+    <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
+  `;
 
-    const upiUrl = `upi://pay?pa=${student.upiId}&pn=${encodeURIComponent(student.name)}&am=${student.debt}&cu=INR&tn=Payment%20for%20Debt`;
-
-    card.innerHTML = `
-      <h3>${student.name}</h3>
-      <p>Place: ${student.place}</p>
-      <p>Debt to be Given: ₹${student.debt}</p>
-      <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
-    `;
-
-    sectionDiv.appendChild(card);
-  });
-
-  // Append the section to the container
-  paymentContainer.appendChild(sectionDiv);
+  // Append the card to the container
+  paymentContainer.appendChild(card);
 });
 
 // Add event listeners to "Pay Now" buttons
