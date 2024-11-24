@@ -42,7 +42,7 @@ document.querySelectorAll('.pay-button').forEach(button => {
 
     // Simulate payment confirmation
     setTimeout(() => {
-      document.getElementById('confirmation').style.display = 'flex';
+      document.getElementById('confirmation').classList.remove('hidden');
     }, 5000); // Simulate delay for payment confirmation
   });
 });
