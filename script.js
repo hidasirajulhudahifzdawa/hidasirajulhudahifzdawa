@@ -16,7 +16,7 @@ const payments = [
     { name: "Aslah", place: "Vanimal", class: "Degree Final", debt: 177, upiId: "muhammedasim711@oksbi" },
     { name: "Muhammed NK", place: "Meppayyur", class: "Degree Final", debt: 20, upiId: "muhammedasim711@oksbi" },
     { name: "Niyas", place: "Vellamunda", class: "Degree Final", debt: 143, upiId: "muhammedasim711@oksbi" },
-    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" },
+    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 5, upiId: "muhammedasim711@oksbi" },
   ];
   
   // Reference to the payment container
@@ -29,7 +29,7 @@ const payments = [
     card.className = "card";
   
     // Corrected UPI URL format
-    const upiUrl = `upi://pay?pa=muhammedasim711@oksbi${payment.upiId}&pn=Muhammed%20Adil${encodeURIComponent(payment.name)}&am=5${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+    const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
   
     // Add content to the card
     card.innerHTML = `
