@@ -83,7 +83,7 @@ html, body {
   background: linear-gradient(135deg, #4CAF50, #81c784);
   color: rgb(255, 255, 255);
   border: none;
-  border-radius: 35px;
+  border-radius: 20px;
   padding: 12px 22px;
   font-size: 17px;
   display: flex;
