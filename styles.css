@@ -19,6 +19,29 @@ body {
 
 /* Footer Styling */
 footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px; /* Smaller font for mobile */
+    color: #555;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    background-color: #f1f1f1;
+    border-radius: 10px; /* Optional: Maintain a consistent rounded look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the footer spans the full width */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px; /* Reduce padding for compact layout */
+        font-size: 10px; /* Smaller text for small screens */
+        width: 100%; /* Ensure full width on all screen sizes */
+    }
+}
+
+/* Footer Styling */
+footer {
     margin-top: 50px;
     text-align: center;
     font-size: 14px;
