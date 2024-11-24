@@ -69,7 +69,7 @@ body {
 }
 
 /* Button Styling */
-.button {
+.pay-button {
   background: linear-gradient(135deg, #4CAF50, #81c784);
   color: rgb(255, 255, 255);
   border: none;
