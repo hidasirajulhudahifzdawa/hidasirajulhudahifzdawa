@@ -6,9 +6,9 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed to start aligning to the top */
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto; /* Enables body scrolling */
     flex-direction: column;
 }
 
@@ -45,27 +45,9 @@ body {
   text-align: normal;
   line-height: 1.5;
   width: 350px;
+  max-height: 80vh; /* Limits the container height to avoid full screen overflow */
+  overflow-y: auto; /* Enables vertical scrolling if content exceeds container height */
   animation: fadeIn 1s ease-in-out;
-}
-
-/* Header Styling */
-.container h1, .container h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.container h2 {
-  font-size: 25px;
-  text-align: center;
-}
-
-.container p {
-  font-size: 18px;
-  text-align: left;
-  margin-bottom: 20px;
-  color: #333;
 }
 
 /* Card Styling */
