@@ -16,7 +16,7 @@ const payments = [
     { name: "Aslah", place: "Vanimal", class: "Degree Final", debt: 177, upiId: "muhammedasim711@oksbi" },
     { name: "Muhammed NK", place: "Meppayyur", class: "Degree Final", debt: 20, upiId: "muhammedasim711@oksbi" },
     { name: "Niyas", place: "Vellamunda", class: "Degree Final", debt: 143, upiId: "muhammedasim711@oksbi" },
-    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 5, upiId: "muhammedasim711@oksbi" },
+    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" },
   ];
   
   // Reference to the payment container
