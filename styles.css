@@ -2,7 +2,7 @@
 .body {
     font-family: 'Anek Malayalam Light', sans-serif;
     background: linear-gradient(135deg, #d48f83, #b6fbff);
-    margin: 0;
+    margin: 20px;
     padding: 0;
     display: flex;
     justify-content: center;
