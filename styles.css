@@ -102,26 +102,34 @@ body {
 /* Button Styling */
 .button {
   background: linear-gradient(135deg, #4CAF50, #81c784);
-  color: rgb(255, 255, 255);
+  color: white;
   border: none;
   border-radius: 13px;
-  padding: 12px 22px;
-  font-size: 17px;
-  display: flex;
+  padding: 12px 30px; /* Adjusted padding for better sizing */
+  font-size: 18px; /* Increased font size for better visibility */
   font-weight: bold;
   text-align: center;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  text-decoration: none;
+  display: inline-flex; /* Use inline-flex to center content */
+  justify-content: center; 
+  align-items: center;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px auto; /* Centering the button with auto margin */
+  width: 100%; /* Full width within its container */
 }
 
 .button:hover {
   background: linear-gradient(135deg, #388E3C, #66bb6a);
   transform: scale(1.05);
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+  .button {
+    width: 80%; /* Make button smaller on mobile */
+    padding: 12px 20px; /* Adjust padding for smaller screen */
+  }
 }
 
 /* Success Message Styling */
