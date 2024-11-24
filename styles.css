@@ -5,10 +5,10 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Changed to start aligning to the top */
-    height: 100vh;
-    overflow-y: auto; /* Enables body scrolling */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: flex-start;
+    height: 100%; /* Ensure the body takes the full height */
+    overflow: auto; /* Allow the body to scroll if content overflows */
     flex-direction: column;
 }
 
@@ -45,8 +45,8 @@ body {
   text-align: normal;
   line-height: 1.5;
   width: 350px;
-  max-height: 80vh; /* Limits the container height to avoid full screen overflow */
-  overflow-y: auto; /* Enables vertical scrolling if content exceeds container height */
+  max-height: 70vh; /* Limit container height, adjust as needed */
+  overflow-y: auto; /* Enables vertical scrolling inside the container */
   animation: fadeIn 1s ease-in-out;
 }
 
