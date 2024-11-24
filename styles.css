@@ -36,24 +36,6 @@ body {
   margin-right: 10px;
 }
 
-/* Failure Message */
-.failure-message {
-  text-align: center;
-  color: #FF0000;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-left: 50px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.failure-message .cross {
-  font-size: 30px;
-  display: block;
-  margin-right: 60px;
-  margin-bottom: 10px;
-  color: #FF0000;
-}
-
 /* Container Styling */
 .container {
   background: #ffffff;
@@ -86,19 +68,6 @@ body {
   color: #333;
 }
 
-/* Details Section */
-.details {
-  margin: 15px 0;
-  text-align: left;
-  font-size: 18px;
-}
-
-.details p {
-  margin: 8px 0;
-  font-size: 14px;
-  color: #555;
-}
-
 /* Button Styling */
 .button {
   background: linear-gradient(135deg, #4CAF50, #81c784);
@@ -124,27 +93,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Success Message Styling */
-.success-message {
-  text-align: center;
-  color: #4CAF50;
-  font-size: 20px;
-  justify-content: center;
-  margin-top: 20px;
-  margin-right: 10px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.success-message .tick {
-  font-size: 30px;
-  display: block;
-  align-items: center;
-  margin-right: 50px;
-  margin-bottom: 10px;
-  color: #4CAF50;
-  animation: bounce 1s ease-in-out infinite;
-}
-
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -154,14 +102,5 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
   }
 }
