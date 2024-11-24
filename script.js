@@ -29,7 +29,7 @@ const payments = [
     card.className = "card";
   
     // Corrected UPI URL format
-    const upiUrl = `upi://pay?pa=muhammedasim711@oksbi${payment.upiId}&pn=Muhammed%20Adil${encodeURIComponent(payment.name)}&am=1000${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+    const upiUrl = `upi://pay?pa=muhammedasim711@oksbi${payment.upiId}&pn=Muhammed%20Adil${encodeURIComponent(payment.name)}&am=5${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
   
     // Add content to the card
     card.innerHTML = `
