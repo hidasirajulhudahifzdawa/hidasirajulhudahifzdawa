@@ -1,28 +1,22 @@
-function initiatePayment(name, amount) {
-  // UPI ID
-  const upiId = "muhammedasim711@oksbi";
-  const note = encodeURIComponent("Debt Payment");
-
-  // Create the dynamic UPI payment link
-  const upiLink = `upi://pay?pa=${muhammedasim711@oksbi}&pn=${encodeURIComponent(Muhammed%20Adil
-  )}&am=${5}&cu=INR&tn=${Examfee}`;
-
-  // Redirect to the UPI payment link
+document.getElementById("payNow").addEventListener("click", function () {
+  // UPI Payment Link
+  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Adil&am=5&cu=INR&tn=Exam%20Fee";
+  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Shaheer&am=100&cu=INR&tn=Debt%20Payment";
+  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Uvais&am=270&cu=INR&tn=Debt%20Payment";
+  
+  // Open UPI Payment
   window.location.href = upiLink;
 
-  // Display a message to encourage the user to complete payment in the app
-  console.log("Redirecting to UPI Payment...");
-}
+  // Simulate payment status (mock behavior)
+  setTimeout(() => {
+    const paymentSuccessful = Math.random() > 0.5; // Randomize for demonstration
 
-// Add event listeners for each button
-document.getElementById("payAdil").addEventListener("click", function () {
-  initiatePayment("Muhammed Adil", 5);
-});
-
-document.getElementById("payShaheer").addEventListener("click", function () {
-  initiatePayment("Shaheer", 100);
-});
-
-document.getElementById("payUvais").addEventListener("click", function () {
-  initiatePayment("Uvais", 270);
+    if (paymentSuccessful) {
+      document.getElementById("successMessage").classList.remove("hidden");
+      document.getElementById("failureMessage").classList.add("hidden");
+    } else {
+      document.getElementById("failureMessage").classList.remove("hidden");
+      document.getElementById("successMessage").classList.add("hidden");
+    }
+  }, 3000);
 });
