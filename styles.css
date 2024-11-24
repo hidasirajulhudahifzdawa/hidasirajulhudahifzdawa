@@ -250,7 +250,7 @@ footer {
     max-height: 80vh; /* Ensure visibility on smaller screens */
     padding: 20px; /* Adjust padding for compact layout */
     text-align: normal;
-    line-height: 1px; /* Improve readability */
+    line-height: 1. 3px; /* Improve readability */
 }
 
 /* Card Styling */
