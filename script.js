@@ -4,9 +4,8 @@ function initiatePayment(name, amount) {
   const note = encodeURIComponent("Debt Payment");
 
   // Create the dynamic UPI payment link
-  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
-    name
-  )}&am=${amount}&cu=INR&tn=${note}`;
+  const upiLink = `upi://pay?pa=${muhammedasim711@oksbi}&pn=${encodeURIComponent(Muhammed%20Adil
+  )}&am=${5}&cu=INR&tn=${Examfee}`;
 
   // Redirect to the UPI payment link
   window.location.href = upiLink;
