@@ -1,22 +1,45 @@
-document.getElementById("payNow").addEventListener("click", function () {
-  // UPI Payment Link
-  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Muhammed%20Adil&am=5&cu=INR&tn=Exam%20Fee";
-  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Shaheer&am=100&cu=INR&tn=Debt%20Payment";
-  const upiLink = "upi://pay?pa=muhammedasim711@oksbi&pn=Uvais&am=270&cu=INR&tn=Debt%20Payment";
-  
-  // Open UPI Payment
-  window.location.href = upiLink;
+// Array of payment data
+const payments = [
+  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "adil@upi" },
+  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "shaheer@upi" },
+  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "uvais@upi" },
+  { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 352, upiId: "thajudheen@upi" },
+];
 
-  // Simulate payment status (mock behavior)
-  setTimeout(() => {
-    const paymentSuccessful = Math.random() > 0.5; // Randomize for demonstration
+// Reference to the payment container
+const paymentContainer = document.getElementById("payment-container");
 
-    if (paymentSuccessful) {
-      document.getElementById("successMessage").classList.remove("hidden");
-      document.getElementById("failureMessage").classList.add("hidden");
-    } else {
-      document.getElementById("failureMessage").classList.remove("hidden");
-      document.getElementById("successMessage").classList.add("hidden");
-    }
-  }, 3000);
+// Generate payment cards dynamically
+payments.forEach((payment) => {
+  // Create card element
+  const card = document.createElement("div");
+  card.className = "card";
+
+  // Add content to the card
+  card.innerHTML = `
+    <h3>${payment.name}</h3>
+    <p>Place: ${payment.place}</p>
+    <p>Class: ${payment.class}</p>
+    <p>Debt to be Given: ₹${payment.debt}</p>
+    <a class="pay-button" href="#" data-upi="upi://pay?pa=${payment.upiId}&pn=${payment.name}&am=${payment.debt}&cu=INR">Pay Now</a>
+  `;
+
+  // Append the card to the container
+  paymentContainer.appendChild(card);
+});
+
+// Add event listeners to "Pay Now" buttons
+document.querySelectorAll('.pay-button').forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    const upiLink = event.target.getAttribute('data-upi');
+    
+    // Open the UPI link
+    window.location.href = upiLink;
+
+    // Simulate payment confirmation
+    setTimeout(() => {
+      document.getElementById('confirmation').style.display = 'flex';
+    }, 5000); // Simulate delay for payment confirmation
+  });
 });
