@@ -1,9 +1,9 @@
 // Array of payment data
 const payments = [
-  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "adil@upi" },
-  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "shaheer@upi" },
-  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "uvais@upi" },
-  { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 352, upiId: "thajudheen@upi" },
+  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
+  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 100, upiId: "muhammedasim711@oksbi" },
+  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
+  { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 352, upiId: "muhammedasim711@oksbi" },
 ];
 
 // Reference to the payment container
