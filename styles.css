@@ -1,7 +1,7 @@
 /* Body Styling */
 body {
     font-family: 'Anek Malayalam Light', sans-serif;
-    background: linear-gradient(135deg, #d48f83, #b6fbff);
+    background: linear-gradient(135deg, #ffffff, #ebebeb);
     margin: 50px;
     padding: 0;
     display: flex;
@@ -11,6 +11,12 @@ body {
     min-height: 100vh; /* Ensure the body takes at least the full viewport height */
     overflow: auto; /* Allow the body to scroll if content overflows */
 }
+
+/* Head Styling */
+.h1 {
+    color: #ac6700;
+}
+
 
 /* Prevent horizontal overflow */
 html, body {
@@ -45,11 +51,11 @@ html, body {
 /* Container Styling */
 .container {
   background: #ffffff;
-  border-radius: 50px;
+  border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: normal;
-  line-height: 35px;
+  line-height: 1px;
   width: 350px;
   max-height: 70vh; /* Limit container height, adjust as needed */
   overflow-y: auto; /* Enables vertical scrolling inside the container */
@@ -63,7 +69,7 @@ html, body {
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
@@ -77,7 +83,7 @@ html, body {
   background: linear-gradient(135deg, #4CAF50, #81c784);
   color: rgb(255, 255, 255);
   border: none;
-  border-radius: 3px;
+  border-radius: 13px;
   padding: 12px 22px;
   font-size: 17px;
   display: flex;
