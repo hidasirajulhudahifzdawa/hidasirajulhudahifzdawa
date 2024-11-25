@@ -1,8 +1,8 @@
-// Array of payment data with corrected UPI URL format
+// Array of payment data
 const payments = [
-  { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
-  { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 105, upiId: "muhammedasim711@oksbi" },
-  { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
+    { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5000, upiId: "muhammedasim711@oksbi" },
+    { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 10500, upiId: "muhammedasim711@oksbi" },
+    { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
   { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 357, upiId: "muhammedasim711@oksbi" },
   { name: "Muswavir", place: "Kavanoor", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
   { name: "Abdulla", place: "Chiyyur", class: "Degree First", debt: 37, upiId: "muhammedasim711@oksbi" },
@@ -18,51 +18,49 @@ const payments = [
   { name: "Niyas", place: "Vellamunda", class: "Degree Final", debt: 143, upiId: "muhammedasim711@oksbi" },
   { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" },
 ];
+];
 
 // Reference to the payment container
 const paymentContainer = document.getElementById("payment-container");
 
+// Maximum transaction limit (₹5000 as an example)
+const maxTransactionLimit = 5000;
+
 // Generate payment cards dynamically
 payments.forEach((payment) => {
-  // Check if debt exceeds the UPI limit
-  if (payment.debt > 100000) { 
-    console.log("Amount exceeds UPI limit.");
-    alert(`Amount for ${payment.name} exceeds the UPI limit. Please try a smaller amount or multiple payments.`);
-    return; // Skip this payment card
-  }
+    const card = document.createElement("div");
+    card.className = "card";
 
-  // Create card element
-  const card = document.createElement("div");
-  card.className = "card";
+    const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
 
-  // Corrected UPI URL format
-  const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
+    // Check debt against limit
+    const payNowButton = payment.debt > maxTransactionLimit
+        ? `<p class="warning">Debt exceeds transaction limit. Please pay in smaller amounts.</p>`
+        : `<a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>`;
 
-  // Add content to the card
-  card.innerHTML = `
-    <h3>${payment.name}</h3>
-    <p>Place: ${payment.place}</p>
-    <p>Class: ${payment.class}</p>
-    <p>Debt to be Given: ₹${payment.debt}</p>
-    <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
-  `;
+    card.innerHTML = `
+      <h3>${payment.name}</h3>
+      <p>Place: ${payment.place}</p>
+      <p>Class: ${payment.class}</p>
+      <p>Debt to be Given: ₹${payment.debt}</p>
+      ${payNowButton}
+    `;
 
-  // Append the card to the container
-  paymentContainer.appendChild(card);
+    paymentContainer.appendChild(card);
 });
 
-// Add event listeners to "Pay Now" buttons
+// Event listener for "Pay Now" buttons
 document.querySelectorAll('.pay-button').forEach(button => {
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    const upiLink = event.target.href;
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const upiLink = event.target.href;
 
-    // Open the UPI link
-    window.location.href = upiLink;
+        // Open the UPI link
+        window.location.href = upiLink;
 
-    // Simulate payment confirmation
-    setTimeout(() => {
-      document.getElementById('confirmation').classList.remove('hidden');
-    }, 5000); // Simulate delay for payment confirmation
-  });
+        // Simulate payment confirmation
+        setTimeout(() => {
+            document.getElementById('confirmation').classList.remove('hidden');
+        }, 5000); // Simulate delay for payment confirmation
+    });
 });
