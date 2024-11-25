@@ -1,5 +1,4 @@
 // Array of payment data with corrected UPI URL format
-// Array of payment data with corrected UPI URL format
 const payments = [
     { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
     { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 105, upiId: "muhammedasim711@oksbi" },
@@ -71,10 +70,6 @@ const payments = [
     button.addEventListener('click', (event) => {
       // Show payment successful message only after submit is clicked
       const card = event.target.closest('.card');
-      const confirmation = card.querySelector('.success');
-  
-      // Show the confirmation message
-      confirmation.classList.remove('hidden');
   
       // Optionally, disable further actions
       event.target.disabled = true; // Disable the submit button after submission
