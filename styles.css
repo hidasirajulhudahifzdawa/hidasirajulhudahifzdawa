@@ -19,29 +19,6 @@ body {
 
 /* Footer Styling */
 footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 12px; /* Smaller font for mobile */
-    color: #555;
-    padding: 10px 20px; /* Adjust padding for better appearance */
-    background-color: #f1f1f1;
-    border-radius: 10px; /* Optional: Maintain a consistent rounded look */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure the footer spans the full width */
-    box-sizing: border-box; /* Include padding in the total width */
-}
-
-/* Adjustments for very small screens */
-@media (max-width: 768px) {
-    footer {
-        padding: 10px; /* Reduce padding for compact layout */
-        font-size: 10px; /* Smaller text for small screens */
-        width: 100%; /* Ensure full width on all screen sizes */
-    }
-}
-
-/* Footer Styling */
-footer {
     margin-top: 50px;
     text-align: center;
     font-size: 14px;
@@ -192,7 +169,7 @@ html, body {
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 7px;
-  padding: 12px 23px;
+  padding: 12px 25px;
   font-size: 17px;
   display: flex;
   font-weight: bold;
@@ -247,7 +224,7 @@ footer {
     text-align: center;
     font-size: 12px; /* Smaller font for mobile */
     color: #555;
-    padding: 20px 1000px;
+    padding: 20px 800px;
     background-color: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -286,7 +263,7 @@ footer {
 
 /* Button Styling */
 .pay-button {
-    padding: 10px 18px; /* Adjust padding for smaller screens */
+    padding: 13px 18px; /* Adjust padding for smaller screens */
     font-size: 16px;
 }
 
@@ -323,5 +300,94 @@ footer {
     .pay-button {
         padding: 8px 16px;
         font-size: 14px;
+    }
+}
+
+/* Upload Section - for screenshot and submit button */
+.upload-section {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: none; /* Initially hidden */
+}
+
+.screenshot-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: none; /* Initially hidden */
+}
+
+.submit-button.hidden {
+  display: none; /* Hide the button when hidden class is applied */
+}
+
+.submit-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Container and Body Adjustments for Smaller Devices */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .pay-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .social-icons {
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 12px;
+    }
+}
+
+/* Adding responsiveness for even smaller devices */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .pay-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .social-icons {
+        gap: 8px;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 10px;
     }
 }
