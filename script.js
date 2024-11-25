@@ -50,7 +50,7 @@ const payments = [
   });
   
   // Add event listeners to "Pay Now" buttons
-  document.querySelectorAll('.pay-button').forEach(button => {
+document.querySelectorAll('.pay-button').forEach(button => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
       const upiLink = event.target.href;
@@ -58,18 +58,30 @@ const payments = [
       // Open the UPI link
       window.location.href = upiLink;
   
-      // Show the screenshot upload and submit button after payment
+      // Show the screenshot upload section after payment
       const card = event.target.closest('.card');
       const uploadSection = card.querySelector('.screenshot-upload');
       uploadSection.classList.remove('hidden');
     });
   });
   
-  // Add event listeners to "Submit" buttons after screenshot upload
+  // Show the submit button when a file is uploaded
+  document.querySelectorAll('.screenshot-input').forEach(input => {
+    input.addEventListener('change', (event) => {
+      const submitButton = event.target.closest('.screenshot-upload').querySelector('.submit-button');
+      submitButton.classList.remove('hidden'); // Show the submit button after screenshot is uploaded
+    });
+  });
+  
+  // Add event listeners to "Submit" buttons
   document.querySelectorAll('.submit-button').forEach(button => {
     button.addEventListener('click', (event) => {
       // Show payment successful message only after submit is clicked
       const card = event.target.closest('.card');
+      const confirmation = card.querySelector('.success');
+  
+      // Show the confirmation message
+      confirmation.classList.remove('hidden');
   
       // Optionally, disable further actions
       event.target.disabled = true; // Disable the submit button after submission
