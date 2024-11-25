@@ -1,7 +1,7 @@
 // Array of payment data
 const payments = [
-    { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5000, upiId: "muhammedasim711@oksbi" },
-    { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 10500, upiId: "muhammedasim711@oksbi" },
+    { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
+    { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 105, upiId: "muhammedasim711@oksbi" },
     { name: "Uvais", place: "Koothuparamba", class: "Degree First", debt: 270, upiId: "muhammedasim711@oksbi" },
     { name: "Thajudheen", place: "Tharuvana", class: "Degree First", debt: 357, upiId: "muhammedasim711@oksbi" },
     { name: "Muswavir", place: "Kavanoor", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
