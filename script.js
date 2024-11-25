@@ -29,8 +29,7 @@ payments.forEach((payment) => {
     card.className = "card";
 
     // Corrected UPI URL format
-    const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
-
+    const upiUrl = `upi://pay?pa=${encodeURIComponent(payment.upiId)}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=${encodeURIComponent('Payment for Debt')}`;
     // Add content to the card
     card.innerHTML = `
       <h3>${payment.name}</h3>
