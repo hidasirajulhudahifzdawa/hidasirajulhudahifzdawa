@@ -1,4 +1,5 @@
-// Array of payment data
+// Array of payment data with corrected UPI URL format
+// Array of payment data with corrected UPI URL format
 const payments = [
     { name: "Muhammed Adil", place: "Perambra", class: "Degree First", debt: 5, upiId: "muhammedasim711@oksbi" },
     { name: "Shaheer", place: "Perambra", class: "Degree First", debt: 105, upiId: "muhammedasim711@oksbi" },
@@ -16,50 +17,79 @@ const payments = [
     { name: "Aslah", place: "Vanimal", class: "Degree Final", debt: 177, upiId: "muhammedasim711@oksbi" },
     { name: "Muhammed NK", place: "Meppayyur", class: "Degree Final", debt: 20, upiId: "muhammedasim711@oksbi" },
     { name: "Niyas", place: "Vellamunda", class: "Degree Final", debt: 143, upiId: "muhammedasim711@oksbi" },
-    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" },
-];
-
-// Reference to the payment container
-const paymentContainer = document.getElementById("payment-container");
-
-// Maximum transaction limit (₹5000 as an example)
-const maxTransactionLimit = 5000;
-
-// Generate payment cards dynamically
-payments.forEach((payment) => {
+    { name: "Muhammed VTK", place: "Cherandathur", class: "Degree Final", debt: 7, upiId: "muhammedasim711@oksbi" }
+  ];
+  
+  // Reference to the payment container
+  const paymentContainer = document.getElementById("payment-container");
+  
+  // Generate payment cards dynamically
+  payments.forEach((payment) => {
+    // Create card element
     const card = document.createElement("div");
     card.className = "card";
-
+  
+    // Corrected UPI URL format
     const upiUrl = `upi://pay?pa=${payment.upiId}&pn=${encodeURIComponent(payment.name)}&am=${payment.debt}&cu=INR&tn=Payment%20for%20Debt`;
-
-    // Check debt against limit
-    const payNowButton = payment.debt > maxTransactionLimit
-        ? `<p class="warning">Debt exceeds transaction limit. Please pay in smaller amounts.</p>`
-        : `<a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>`;
-
+  
+    // Add content to the card
     card.innerHTML = `
       <h3>${payment.name}</h3>
       <p>Place: ${payment.place}</p>
       <p>Class: ${payment.class}</p>
       <p>Debt to be Given: ₹${payment.debt}</p>
-      ${payNowButton}
+      <a class="pay-button" href="${upiUrl}" target="_blank">Pay Now</a>
+      <div class="screenshot-upload hidden">
+        <input type="file" accept="image/*" class="screenshot-input">
+        <button class="submit-button hidden">Submit</button>
+      </div>
+      <div class="success hidden">Payment Successful!</div>
     `;
-
+  
+    // Append the card to the container
     paymentContainer.appendChild(card);
-});
-
-// Event listener for "Pay Now" buttons
-document.querySelectorAll('.pay-button').forEach(button => {
+  });
+  
+  // Add event listeners to "Pay Now" buttons
+  document.querySelectorAll('.pay-button').forEach(button => {
     button.addEventListener('click', (event) => {
-        event.preventDefault();
-        const upiLink = event.target.href;
-
-        // Open the UPI link
-        window.location.href = upiLink;
-
-        // Simulate payment confirmation
-        setTimeout(() => {
-            document.getElementById('confirmation').classList.remove('hidden');
-        }, 5000); // Simulate delay for payment confirmation
+      event.preventDefault();
+      const upiLink = event.target.href;
+  
+      // Open the UPI link
+      window.location.href = upiLink;
+  
+      // Show the screenshot upload and submit button after payment
+      const card = event.target.closest('.card');
+      const uploadSection = card.querySelector('.screenshot-upload');
+      uploadSection.classList.remove('hidden');
     });
-});
+  });
+  
+  // Add event listeners to "Submit" buttons after screenshot upload
+  document.querySelectorAll('.submit-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+      // Show payment successful message only after submit is clicked
+      const card = event.target.closest('.card');
+      const confirmation = card.querySelector('.success');
+  
+      // Show the confirmation message
+      confirmation.classList.remove('hidden');
+  
+      // Optionally, disable further actions
+      event.target.disabled = true; // Disable the submit button after submission
+  
+      // Optionally hide the upload section after submission
+      const uploadSection = card.querySelector('.screenshot-upload');
+      uploadSection.classList.add('hidden');
+    });
+  });
+  
+  // Show the submit button when the user uploads a screenshot
+  document.querySelectorAll('.screenshot-input').forEach(input => {
+    input.addEventListener('change', (event) => {
+      const submitButton = event.target.closest('.screenshot-upload').querySelector('.submit-button');
+      submitButton.classList.remove('hidden'); // Show the submit button after screenshot is uploaded
+    });
+  });
+  
